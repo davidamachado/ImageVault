@@ -1,0 +1,42 @@
+﻿@page
+@model RazorPagesTest.Pages.Images.CreateModel
+
+@{
+    ViewData["Title"] = "Upload";
+}
+
+
+<h4 class="display-4">Upload</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="file" asp-for="Upload" id="file1" accept="image/*" />
+                <span asp-validation-for="Image.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+            @if (@Model.Message == "incomplete")
+            {
+                <p class="text-danger">A FILE MUST BE SELECTED</p>
+            }
+            else if (@Model.Message == "complete")
+            {
+                <p class="text-success">UPLOAD COMPLETE</p>
+                <img src="@Model.ImagePath" alt="image" height="200" />
+            }
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
