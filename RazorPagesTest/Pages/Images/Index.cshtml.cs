@@ -25,5 +25,11 @@ namespace RazorPagesTest.Pages.Images
         {
             Image = await _context.Image.ToListAsync();
         }
+
+        public string getPath(Image i)
+        {
+            string imagePath = "/Uploads/" + i.FileName;
+            return imagePath;
+        }
     }
 }

@@ -14,6 +14,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Image.Id" />
             <div class="form-group">
+                <label asp-for="Image.FileName" class="control-label"></label>
+                <input asp-for="Image.FileName" class="form-control" />
+                <span asp-validation-for="Image.FileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Image.Title" class="control-label"></label>
                 <input asp-for="Image.Title" class="form-control" />
                 <span asp-validation-for="Image.Title" class="text-danger"></span>

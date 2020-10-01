@@ -61,7 +61,7 @@ namespace RazorPagesTest.Pages.Images
                 _context.Image.Remove(Image);
                 await _context.SaveChangesAsync();
                 webRootPath = _environment.WebRootPath;
-                ImagePath = webRootPath + "/Uploads/" + Image.Title;
+                ImagePath = webRootPath + "/Uploads/" + Image.FileName;
                 System.IO.File.Delete(ImagePath);
             }
 

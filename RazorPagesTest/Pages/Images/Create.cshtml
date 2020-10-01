@@ -15,19 +15,14 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <input type="file" asp-for="Upload" id="file1" accept="image/*" />
-                <span asp-validation-for="Image.Title" class="text-danger"></span>
+                <span asp-validation-for="Image.FileName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Submit" class="btn btn-primary" />
             </div>
             @if (@Model.Message == "incomplete")
             {
-                <p class="text-danger">A FILE MUST BE SELECTED</p>
-            }
-            else if (@Model.Message == "complete")
-            {
-                <p class="text-success">UPLOAD COMPLETE</p>
-                <img src="@Model.ImagePath" alt="image" height="200" />
+                <p class="text-danger">A FILE MUST BE CHOSEN</p>
             }
         </form>
     </div>

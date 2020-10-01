@@ -36,8 +36,7 @@ namespace RazorPagesTest.Pages.Images
         public string Message { get; set; }
         public string ImagePath { get; set; }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
+        //method to handle program logic after form is submitted
         public async Task<IActionResult> OnPostAsync()
         {
             if (Request.Form.Files.Count > 0)
@@ -49,7 +48,7 @@ namespace RazorPagesTest.Pages.Images
                 }
 
                 //save file to database
-                Image.Title = Upload.FileName;
+                Image.FileName = Upload.FileName;
                 _context.Image.Add(Image);
                 await _context.SaveChangesAsync();
 
@@ -60,8 +59,7 @@ namespace RazorPagesTest.Pages.Images
                 {
                     await Upload.CopyToAsync(fileStream);
                     ImagePath = Url.Content("~/Uploads/" + Upload.FileName);
-                    Message = "complete";
-                    return Page();
+                    return RedirectToPage("./Index");
                 }
             }
             else
