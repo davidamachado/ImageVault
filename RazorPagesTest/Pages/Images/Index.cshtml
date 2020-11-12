@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h4 class="display-4">Gallery</h4>
+<h4 class="display-4">Image Gallery</h4>
 
 <p>
     <a asp-page="Create">Add New Image</a>
@@ -13,24 +13,20 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Image[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image[0].FileName)
-            </th>
-            <th></th>
-            <th></th>
+            <th>Title</th>
+            <th>File Name</th>
+            <th>Preview</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Image) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @item.Title
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FileName)
+                @item.FileName
             </td>
             <td>
                 <img src="@Model.getPath(item)" class="rounded" alt="image"height="150" />
