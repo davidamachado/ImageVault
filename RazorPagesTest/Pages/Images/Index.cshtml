@@ -33,7 +33,7 @@
                 @Html.DisplayFor(modelItem => item.FileName)
             </td>
             <td>
-                <img src="@Model.getPath(item)" alt="image" height="150" />
+                <img src="@Model.getPath(item)" class="rounded" alt="image"height="150" />
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
