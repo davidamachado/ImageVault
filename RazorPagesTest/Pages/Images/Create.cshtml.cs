@@ -49,6 +49,7 @@ namespace RazorPagesTest.Pages.Images
 
                 //save file to database
                 Image.FileName = Upload.FileName;
+                Image.Title = "(No Title)";
                 _context.Image.Add(Image);
                 await _context.SaveChangesAsync();
 
